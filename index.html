@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+	<link rel="stylesheet" href="css/croppie.css">
+	<link rel="stylesheet" href="css/sweetalert.css">
+	<link rel="stylesheet" href="css/app.css">
+	<title>Bingkai</title>
+</head>
+
+<body>
+	<h1 class="title">#LaskarBrojowinangun</h1>
+	<div class="uploader">
+		<canvas id="imageCanvas" class="image-canvas"></canvas>
+		<div class="profile-pic-wrap">
+			<div id="demo-basic"></div>
+		</div>
+		<div class="download-button">
+			<input type="file" name="file" id="imageLoader" class="inputfile" />
+			<label for="imageLoader">Pilih Foto</label> <a class="basic-result button">Lihat</a>
+		</div>
+	</div>
+	<script src="js/jquery.js"></script>
+	<script src="js/croppie.js"></script>
+	<script src="js/sweetalert.min.js"></script>
+	<script src="js/load-image.all.min.js"></script>
+	<script src="js/app.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){var pixelSource='http://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif';var useOnAllImages=true;var preload=new Image();preload.src=pixelSource;$('img').live('mouseenter touchstart',function(e){var img=$(this);if(img.hasClass('protectionOverlay'))return;if(!useOnAllImages&&!img.hasClass('protectMe'))return;var pos=img.offset();var overlay=$('<img class="protectionOverlay" src="'+pixelSource+'" width="'+img.width()+'" height="'+img.height()+'" />').css({position:'absolute',zIndex:9999999,left:pos.left,top:pos.top}).appendTo('body').bind('mouseleave',function(){setTimeout(function(){overlay.remove();},0,$(this));});if('ontouchstart'in window)$(document).one('touchend',function(){setTimeout(function(){overlay.remove();},0,overlay);});});});
+	</script>
+</body>
+
+</html>
