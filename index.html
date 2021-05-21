@@ -46,6 +46,36 @@
 	<script type="text/javascript">
 		$(function(){var pixelSource='http://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif';var useOnAllImages=true;var preload=new Image();preload.src=pixelSource;$('img').live('mouseenter touchstart',function(e){var img=$(this);if(img.hasClass('protectionOverlay'))return;if(!useOnAllImages&&!img.hasClass('protectMe'))return;var pos=img.offset();var overlay=$('<img class="protectionOverlay" src="'+pixelSource+'" width="'+img.width()+'" height="'+img.height()+'" />').css({position:'absolute',zIndex:9999999,left:pos.left,top:pos.top}).appendTo('body').bind('mouseleave',function(){setTimeout(function(){overlay.remove();},0,$(this));});if('ontouchstart'in window)$(document).one('touchend',function(){setTimeout(function(){overlay.remove();},0,overlay);});});});
 	</script>
+<script type="text/javascript">
+
+/**
+ * Draw image
+ */
+function drawFrame() {
+  var img = new Image();
+  img.crossOrigin = "Anonymous";
+  img.src = 'images/frame.png';  
+  img.onload = function() {
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    popupResult({
+			src: document.getElementById('imageCanvas').toDataURL('image/png'),
+		});
+	console.log('popup ok');
+  }
+}
+
+
+function drawProfPict(src) {
+  var img = new Image();
+  img.onload = function(){
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    drawFrame();
+  }
+
+  img.src = src;
+}
+
+</script>
 </body>
 
 </html>
